@@ -12,4 +12,11 @@ skip_before_action :authenticate_user!, only: :show
   def create
   end
 
+  def edit
+    @dragon = Dragon.find(params[:id])
+  end
+
+  def update
+  end
+
 end

@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Details of the selected dragon</h1>
+  <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
   <hr>
   <ul>
     <li><%= @dragon.nickname %></li>
@@ -7,6 +8,7 @@
     <li><%= @dragon.size %></li>
     <li><%= @dragon.description %></li>
   </ul>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <hr>
   <%= link_to "Back to index", root_path  %>
 </div>
