@@ -17,7 +17,8 @@
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.unique.last_name,
     email: Faker::Internet.email,
-    password: Faker::Lorem.characters(number: 10, min_alpha: 4),
+  # password: Faker::Lorem.characters(number: 10, min_alpha: 4),
+    password: "1234567",
     role: ["owner", "renter"].sample,
     phone_number: Faker::PhoneNumber.cell_phone_in_e164,
     description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true)
