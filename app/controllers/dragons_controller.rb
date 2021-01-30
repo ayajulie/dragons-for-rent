@@ -1,0 +1,2 @@
+class DragonsController < ApplicationController
+end

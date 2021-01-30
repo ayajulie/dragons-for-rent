@@ -1,2 +1,15 @@
 <h1>Pages#home</h1>
+<h1>List of all dragons</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<hr>
+
+<div class="container">
+  <div class="cards">
+    <% @dragons.each do |dragon| %>
+        <div class="card-category-dragon" >
+          <%= dragon.nickname %>
+        </div>
+      <% end %>
+  </div>
+</div>
+
