@@ -7,7 +7,7 @@
   <div class="cards">
     <% @dragons.each do |dragon| %>
         <div class="card-category-dragon" >
-          <%= dragon.nickname %>
+          <%= link_to "#{dragon.nickname }", dragon_path(dragon)  %>
         </div>
       <% end %>
   </div>
