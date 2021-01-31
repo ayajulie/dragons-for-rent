@@ -19,13 +19,26 @@
     email: Faker::Internet.email,
   # password: Faker::Lorem.characters(number: 10, min_alpha: 4),
     password: "1234567",
-    role: ["owner", "renter"].sample,
+    role: "owner",
     phone_number: Faker::PhoneNumber.cell_phone_in_e164,
     description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true)
     )
 end
 
-10.times do
+20.times do
+  user = User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.unique.last_name,
+    email: Faker::Internet.email,
+  # password: Faker::Lorem.characters(number: 10, min_alpha: 4),
+    password: "1234567",
+    role: "renter",
+    phone_number: Faker::PhoneNumber.cell_phone_in_e164,
+    description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true)
+    )
+end
+
+30.times do
    dragon = Dragon.create(
     nickname: Faker::JapaneseMedia::DragonBall.unique.character,
     country: ["France", "Iceland", "Alaska", "Argentina", "Botswana", "New Zealand", "China", "Thailand", "Japan", "Niger", "Iran"].sample,
@@ -36,10 +49,10 @@ end
     )
 end
 
-10.times do
+30.times do
    booking = Booking.create(
-    user_id: (1..10).to_a.sample,
-    dragon_id: (1..10).to_a.sample,
+    user_id: (11..30).to_a.sample,
+    dragon_id: (1..30).to_a.sample,
     status: ["pending", "cancelled", "accepted", "done"].sample,
     start_date: Faker::Date.in_date_period(year: 2021, month: 3),
     end_date: Faker::Date.in_date_period(year: 2021, month: 4)
