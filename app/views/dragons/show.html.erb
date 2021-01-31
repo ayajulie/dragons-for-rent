@@ -3,10 +3,11 @@
   <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
   <hr>
   <ul>
-    <li><%= @dragon.nickname %></li>
-    <li><%= @dragon.speed %></li>
-    <li><%= @dragon.size %></li>
-    <li><%= @dragon.description %></li>
+    <li><strong>Name</strong> : <%= @dragon.nickname %></li>
+    <li><strong>Country</strong> : <%= @dragon.country %></li>
+    <li><strong>Speed</strong> : <%= @dragon.speed %></li>
+    <li><strong>Size</strong> : <%= @dragon.size %></li>
+    <li><strong>Description</strong> : <%= @dragon.description %></li>
   </ul>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <hr>

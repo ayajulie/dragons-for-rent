@@ -3,6 +3,8 @@
 <h1>List of all dragons</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
  <%= link_to "Create a dragon", new_dragon_path  %>
+ <%= link_to "Sign in", new_user_session_path %>
+ <%= link_to "Sign up",  new_user_registration_path  %>
 <hr>
   <div class="cards">
     <% @dragons.each do |dragon| %>
