@@ -12,5 +12,17 @@
   </ul>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <hr>
+  <% if user_signed_in? %>
+    <h5>You have the following bookings for this dragon</h5>
+    <ul>
+    <% @dragon.bookings.each do |booking| %>
+      <li><%= booking.user.first_name %> <%= booking.user.last_name %>
+        <%= booking.start_date %>, <%= booking.end_date %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  <hr>
   <%= link_to "Back to index", root_path  %>
 </div>
+
+
