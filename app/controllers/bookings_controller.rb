@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
 
 def new
+  @dragon = Dragon.find(params[:dragon_id])
   @booking = Booking.new
 end
 
@@ -8,7 +9,8 @@ end
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.dragon = Dragon.find(1)
+    @dragon = Dragon.find(params[:dragon_id])
+    @booking.dragon = @dragon
     if @booking.save
       redirect_to root_path
     else
