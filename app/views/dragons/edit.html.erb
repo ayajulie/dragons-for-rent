@@ -1,7 +1,8 @@
 <div class="container">
-  <h1>Edit the dragon</h1>
+  <h1>Update your dragon</h1>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <hr>
+  <%= render "simple_form", dragon: @dragon  %>
   <hr>
   <%= link_to "Back to index", root_path  %>
 </div>
-
