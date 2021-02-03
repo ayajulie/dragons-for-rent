@@ -1,10 +1,8 @@
 class BookingsController < ApplicationController
-
-def new
-  @dragon = Dragon.find(params[:dragon_id])
-  @booking = Booking.new
-end
-
+  def new
+    @dragon = Dragon.find(params[:dragon_id])
+    @booking = Booking.new
+  end
 
   def create
     @booking = Booking.new(booking_params)
@@ -23,5 +21,4 @@ end
   def booking_params
     params.require(:booking).permit(:end_date, :start_date)
   end
-
 end

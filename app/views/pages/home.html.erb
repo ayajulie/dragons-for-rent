@@ -1,14 +1,15 @@
 <div class="jumbotron">
+  <div class="text-right">
+    <%= link_to "Sign in", new_user_session_path , class: "btn btn-primary"%>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
+    <%= link_to "Create a dragon", new_dragon_path, class: "btn btn-primary" %>
+  </div>
   <h1 class="display-3">Dragons for rent</h1>
   <p class="lead">Fly My Dragon</p>
   <p class="lead jumbo-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab mollitia recusandae similique nobis inventore nemo quidem laboriosam, explicabo magni tempore dolore possimus facere atque consectetur labore asperiores aspernatur ipsa ut?</p>
   <div class="lead cta">
-    <%= link_to "Sign in", new_user_session_path , class: "btn btn-primary btn-lg"%>
-    <%= link_to "Sign up",  new_user_registration_path, class: "btn btn-primary btn-lg"  %>
+    <%= link_to "Sign up now",  new_user_registration_path, class: "btn btn-info btn-lg"  %>
   </div>
-</div>
-<div>
-  <%= link_to "Create a dragon", new_dragon_path, class: "btn btn-primary" %>
 </div>
 <div class="container text-center">
   <div class="container">
