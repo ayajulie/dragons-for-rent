@@ -15,14 +15,14 @@
   <% if user_signed_in? %>
     <h5>You have the following bookings for this dragon</h5>
     <ul>
-    <% @dragon.bookings.each do |booking| %>
-      <li><%= booking.user.first_name %> <%= booking.user.last_name %>
-        <%= booking.start_date %>, <%= booking.end_date %></li>
+      <% @dragon.bookings.each do |booking| %>
+        <li>
+          <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
+            From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+        </li>
       <% end %>
     </ul>
-    <% end %>
+  <% end %>
   <hr>
   <%= link_to "Back to index", root_path  %>
 </div>
-
-
