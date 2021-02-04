@@ -20,7 +20,11 @@
           <div class="row cards mb-4  card-hover">
             <% @dragons.each do |dragon| %>
               <div class="card" style="width: 15rem;">
-                <img class="card-img-top rounded-top" src = <%= image_path 'default_dragon_pic.jpeg' %> alt="Card image cap">
+                <% if dragon.photo.attached? %>
+                  <img class="card-img-top rounded-top" src = <%= cl_image_path dragon.photo.key, height: 300, width: 400, crop: :fill %>  alt="Card image cap">
+                <%else%>
+                  <img class="card-img-top rounded-top" src = <%= image_path 'default_dragon_pic.jpeg' %> alt="Card image cap">
+                <%end%>
                 <div class="card-body">
                   <h5 class="card-title text-left"> <%= link_to "#{dragon.nickname }", dragon_path(dragon)  %> </h5>
                   <p class="card-text text-left"> <%= dragon.description %> </p>
