@@ -34,6 +34,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'faker'
 gem 'bootstrap', '~> 4.2.1'
+gem 'cloudinary', '~> 1.16.0'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
