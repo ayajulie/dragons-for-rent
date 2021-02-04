@@ -35,6 +35,8 @@ gem 'simple_form'
 gem 'faker'
 gem 'bootstrap', '~> 4.2.1'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
