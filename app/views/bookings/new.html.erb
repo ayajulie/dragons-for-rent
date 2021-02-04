@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>Book a dragon</h1>
+  <h1>Book <%= @dragon.nickname %></h1>
   <hr>
-  <%= render "simple_form", booking: @booking  %>
+  <%= render "simple_form", dragon: @dragon, booking: @booking  %>
   <hr>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <%= link_to "Back to index", root_path  %>

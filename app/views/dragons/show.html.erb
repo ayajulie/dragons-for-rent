@@ -2,7 +2,7 @@
   <h1>Details of the selected dragon</h1>
   <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
   <hr>
-  <%= link_to "Book this dragon", new_booking_path %>
+  <%= link_to "Book this dragon", new_dragon_booking_path(@dragon) %>
   <ul>
     <li><strong>Name</strong> : <%= @dragon.nickname %></li>
     <li><strong>Country</strong> : <%= @dragon.country %></li>
@@ -11,6 +11,18 @@
     <li><strong>Description</strong> : <%= @dragon.description %></li>
   </ul>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <hr>
+  <% if user_signed_in? %>
+    <h5>You have the following bookings for this dragon</h5>
+    <ul>
+      <% @dragon.bookings.each do |booking| %>
+        <li>
+          <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
+            From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
   <hr>
   <%= link_to "Back to index", root_path  %>
 </div>
