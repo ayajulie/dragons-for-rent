@@ -1,35 +1,36 @@
 <div class="jumbotron">
-  <div class="text-right">
-    <%= link_to "Sign in", new_user_session_path , class: "btn btn-primary"%>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
-    <%= link_to "Create a dragon", new_dragon_path, class: "btn btn-primary" %>
+  <--En attendant la navbar >
+    <div class="text-right">
+      <%= link_to "Sign in", new_user_session_path , class: "btn btn-primary"%>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
+      <%= link_to "Create a dragon", new_dragon_path, class: "btn btn-primary" %>
+    </div>
+    <h1 class="display-3">Dragons for rent</h1>
+    <p class="lead">Fly My Dragon</p>
+    <p class="lead jumbo-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab mollitia recusandae similique nobis inventore nemo quidem laboriosam, explicabo magni tempore dolore possimus facere atque consectetur labore asperiores aspernatur ipsa ut?</p>
+    <div class="lead cta">
+      <%= link_to "Sign up now",  new_user_registration_path, class: "btn btn-info btn-lg"  %>
+    </div>
   </div>
-  <h1 class="display-3">Dragons for rent</h1>
-  <p class="lead">Fly My Dragon</p>
-  <p class="lead jumbo-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab mollitia recusandae similique nobis inventore nemo quidem laboriosam, explicabo magni tempore dolore possimus facere atque consectetur labore asperiores aspernatur ipsa ut?</p>
-  <div class="lead cta">
-    <%= link_to "Sign up now",  new_user_registration_path, class: "btn btn-info btn-lg"  %>
-  </div>
-</div>
-<div class="container text-center">
-  <div class="container">
-    <div class="col">
-      <div class="row d-lg-flex align-items-center mb-4">
-        <div class="row cards mb-4  card-hover">
-          <% @dragons.each do |dragon| %>
-            <div class="card" style="width: 15rem;">
-              <img class="card-img-top rounded-top" src = <%= image_path 'default_dragon_pic.jpeg' %> alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title text-left"> <%= link_to "#{dragon.nickname }", dragon_path(dragon)  %> </h5>
-                <p class="card-text text-left"> <%= dragon.description %> </p>
+  <div class="container text-center">
+    <div class="container">
+      <div class="col">
+        <div class="row d-lg-flex align-items-center mb-4">
+          <div class="row cards mb-4  card-hover">
+            <% @dragons.each do |dragon| %>
+              <div class="card" style="width: 15rem;">
+                <img class="card-img-top rounded-top" src = <%= image_path 'default_dragon_pic.jpeg' %> alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title text-left"> <%= link_to "#{dragon.nickname }", dragon_path(dragon)  %> </h5>
+                  <p class="card-text text-left"> <%= dragon.description %> </p>
+                </div>
+                <div class="card-footer text-left">
+                  <%= dragon.country %>
+                </div>
               </div>
-              <div class="card-footer text-left">
-                <%= dragon.country %>
-              </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
