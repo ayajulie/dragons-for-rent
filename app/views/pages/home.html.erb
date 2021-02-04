@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <div class="text-right">
     <--En attendant la navbar -->
-      <h5>Hi <%= current_user.first_name %> </h5>
+
       <%= link_to "Sign in", new_user_session_path , class: "btn btn-primary"%>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
       <%= link_to "Create a dragon", new_dragon_path, class: "btn btn-primary" %>
