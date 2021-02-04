@@ -33,7 +33,6 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'faker'
-gem 'bootstrap', '~> 4.2.1'
 
 group :development, :test do
   gem 'pry-byebug'
