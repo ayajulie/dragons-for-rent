@@ -1,8 +1,9 @@
 <%= simple_form_for dragon do |f| %>
-    <%= f.input :nickname %>
-    <%= f.input :country, collection: ["France", "Iceland", "Alaska", "Argentina", "Botswana", "New Zealand", "China", "Thailand", "Japan", "Niger", "Iran"] %>
-    <%= f.input :size, collection: %w(small medium large xlarge) %>
-    <%= f.input :speed, collection: %w(slow medium fast superfast) %>
-    <%= f.input :description %>
-    <%= f.submit  %>
-  <% end %>
+  <%= f.input :nickname %>
+  <%= f.input :country, collection: ["France", "Iceland", "Alaska", "Argentina", "Botswana", "New Zealand", "China", "Thailand", "Japan", "Niger", "Iran"] %>
+  <%= f.input :size, collection: %w(small medium large xlarge) %>
+  <%= f.input :speed, collection: %w(slow medium fast superfast) %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit  %>
+<% end %>
