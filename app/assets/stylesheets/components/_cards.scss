@@ -4,20 +4,38 @@
   grid-gap: 16px;
 }
 
-.card-category-dragon {
-  background-image: asset-url('default_dragon_pic.jpeg');
-  background-size: cover;
-  background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
+// .card-category-dragon {
+//   // background-image: asset-url('default_dragon_pic.jpg');
+//   background-size: cover;
+//   background-position: center;
+//   height: 180px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 24px;
+//   font-weight: bold;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   border-radius: 5px;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   a {
+//     color: white;
+//   }
+// }
+.card {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  a {
-    color: white;
-  }
+  border-radius: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.card-title{
+  color: #E67E22 !important;
+}
+
+.card-img-top{
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+}
+.card-footer{
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
 }

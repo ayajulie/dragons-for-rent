@@ -1,6 +1,6 @@
 class DragonsController < ApplicationController
-skip_before_action :authenticate_user!, only: :show
-before_action :set_dragon, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :show
+  before_action :set_dragon, only: %i[show edit update destroy]
 
   def show
   end
@@ -27,15 +27,13 @@ before_action :set_dragon, only: [:show, :edit, :update, :destroy]
     redirect_to root_path
   end
 
-
   private
 
   def dragon_params
-    params.require(:dragon).permit(:nickname, :country, :size, :speed, :description)
+    params.require(:dragon).permit(:nickname, :country, :size, :speed, :description, :photo)
   end
 
   def set_dragon
     @dragon = Dragon.find(params[:id])
   end
-
 end
