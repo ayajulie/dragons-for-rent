@@ -1,7 +1,11 @@
 <div class="container">
   <h1>Book <%= @dragon.nickname %></h1>
   <hr>
-  <%= render "simple_form", dragon: @dragon, booking: @booking  %>
+  <%= simple_form_for ([@dragon, @booking]) do |f| %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.submit  %>
+<% end %>
   <hr>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <%= link_to "Back to index", root_path  %>
