@@ -27,6 +27,10 @@ class DragonsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @dragons = Dragon.search(country: params[:query])
+  end
+
   private
 
   def dragon_params

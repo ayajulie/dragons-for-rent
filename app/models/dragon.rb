@@ -12,4 +12,12 @@ class Dragon < ApplicationRecord
   has_one_attached :photo
   geocoded_by :country
   after_validation :geocode, if: :will_save_change_to_country?
+
+  # def self.search(search)
+  #   if search
+  #     find(:all, conditions: ['name LIKE ?', "%#{search}%"])
+  #   else
+  #     find(:all)
+  #   end
+  # end
 end
