@@ -12,5 +12,7 @@
   </ul>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <hr>
+  <%= link_to "Delete", booking_path(@booking), :confirm => "Are you sure?", :method => :delete %>
+  <hr>
   <%= link_to "Back to index", root_path  %>
 </div>
