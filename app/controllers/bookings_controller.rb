@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  def create
+  def create 
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @dragon = Dragon.find(params[:dragon_id])
@@ -16,9 +16,23 @@ class BookingsController < ApplicationController
     end
   end
 
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id]) 
+    if @booking.update(booking_params) 
+      redirect_to dragon_path(@booking.dragon)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:end_date, :start_date)
+    params.require(:booking).permit(:end_date, :start_date, :user_id, :dragon_id)
   end
 end
