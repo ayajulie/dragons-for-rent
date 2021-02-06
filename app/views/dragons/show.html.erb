@@ -20,9 +20,15 @@
           <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
             From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
         </li>
+        <%= link_to "Edit the booking", edit_booking_path(booking) %>
       <% end %>
+    
     </ul>
   <% end %>
   <hr>
   <%= link_to "Back to index", root_path  %>
 </div>
+
+
+
+
