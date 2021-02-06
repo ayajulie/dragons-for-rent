@@ -4,6 +4,8 @@
 <div class="container">
 <h1> Change your booking </h1>
  <hr>
+ <p>Your present booking is from <%= @booking.start_date.strftime('%d/%m/%Y') %> to  <%= @booking.end_date.strftime('%d/%m/%Y') %></p>
    <%= render "form", booking: @booking  %>
   <hr>
+<%= link_to "Want to keep your present booking, back to your dragon details", dragon_path(@dragon) %>
 </div>

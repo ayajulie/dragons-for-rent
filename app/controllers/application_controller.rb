@@ -9,4 +9,14 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     # devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
+
+  def unavailable_dates(dragon)
+    @unavailable_dates = []
+    dragon.bookings.each do |booking|
+      @unavailable_dates << {from: booking.start_date.strftime('%Y-%m-%d'),
+                             to: booking.end_date.strftime('%Y-%m-%d')
+                            }
+    end
+  end
+
 end

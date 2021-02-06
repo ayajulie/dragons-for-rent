@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def new
     @dragon = Dragon.find(params[:dragon_id])
     @booking = Booking.new
+    unavailable_dates(@dragon)
   end
 
   def create
@@ -16,9 +17,10 @@ class BookingsController < ApplicationController
     end
   end
 
-
   def edit
     @booking = Booking.find(params[:id])
+    @dragon = @booking.dragon
+    unavailable_dates(@dragon)
   end
 
   def update
@@ -35,4 +37,7 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:end_date, :start_date, :user_id, :dragon_id)
   end
+
+
+
 end
