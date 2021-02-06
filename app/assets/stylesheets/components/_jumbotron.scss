@@ -1,14 +1,33 @@
 .jumbotron{
-  padding: 4rem 4rem 4rem 6rem;
-  background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.2)),  url('dragon_bg.jpeg');
+  background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.2)),  url('dragon_bg_2.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
+  padding: 3rem 4rem 4rem 6rem;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
 .cta{
- padding-top: 3rem;
+ padding-top: 2rem;
 }
 .jumbo-text{
   color: rgba(255, 255, 255, 0.849);
+  padding-top: 1rem;
+}
+
+.jumbotron .btn {
+  border-radius: 24rem;
+  background-color: #AF0069;
+  border: none;
+  color: #fff;
+}
+
+.jumbotron .btn:hover{
+  background-color: #DE0085;
+  color: #cacaca
+}
+
+.jumbo-text{
+  margin-right: 25rem;
+  line-height: 1.9rem;
 }
