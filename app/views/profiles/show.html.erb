@@ -1,0 +1,27 @@
+<div class="container">
+  <% if @user == current_user %>
+    Hello <%= @user.first_name  %> <%= @user.last_name %>
+
+    <ul>
+      <% @user.bookings.each do |booking| %>
+      <li>Your trip to <%= booking.dragon.country %> with <%= booking.dragon.nickname %>, from <%= booking.start_date.strftime('%d/%m/%Y') %>, till <%= booking.end_date.strftime('%d/%m/%Y') %>,
+        contact <%= booking.dragon.user.first_name %> <%= booking.dragon.user.last_name %>
+        <%= link_to "Edit your booking", edit_dragon_booking_path(booking) %>
+      </li>
+
+      <% end %>
+    </ul>
+    <hr>
+    <%= link_to "Edit your profile" ,  edit_user_registration_path %> (not operative)
+    <hr>
+    <%= link_to "Show your passed bookings" , root_path  %>
+    <hr>
+    <%= link_to "Search you next booking" , root_path %>
+
+
+
+
+  <% else %>
+    redirect_to rootpath
+  <% end %>
+</div>
