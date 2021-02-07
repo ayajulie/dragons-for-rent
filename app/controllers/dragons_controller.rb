@@ -3,12 +3,7 @@ class DragonsController < ApplicationController
   before_action :set_dragon, only: %i[show edit update destroy]
 
   def show
-    @unavailable_dates = []
-    @dragon.bookings.each do |booking|
-      @unavailable_dates << {from: booking.start_date.strftime('%Y-%m-%d'),
-                             to: booking.end_date.strftime('%Y-%m-%d')
-                            }
-    end
+    unavailable_dates(@dragon)
   end
 
   def new
