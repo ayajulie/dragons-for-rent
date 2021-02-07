@@ -1,0 +1,6 @@
+<%= simple_form_for (booking) do |f| %>
+  <%= f.input :start_date,as: :string, input_html: {class: "book_calendar", "data-unavailable-dates": @unavailable_dates.to_json} %>
+  <%= f.input :end_date, as: :string, input_html: {class: "book_calendar", "data-unavailable-dates": @unavailable_dates.to_json} %>
+
+  <%= f.submit  %>
+<% end %>

@@ -16,6 +16,7 @@ class DragonsController < ApplicationController
   end
 
   def show
+    unavailable_dates(@dragon)
   end
 
   def new
