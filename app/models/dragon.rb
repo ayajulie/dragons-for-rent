@@ -13,18 +13,6 @@ class Dragon < ApplicationRecord
   geocoded_by :country
   after_validation :geocode, if: :will_save_change_to_country?
 
-  # def self.search(search)
-  #   if search
-  #     country = Dragon.find_by(country: search.to_s)
-  #     if country
-  #       where(country: country)
-  #     else
-  #       @dragons = Dragon.all
-  #     end
-  #   else
-  #     @dragons = Dragon.all
-  #   end
-  # end
   def self.search(search)
     if search
       where("upper(country) LIKE ?", "%#{search.upcase}%")
@@ -32,17 +20,4 @@ class Dragon < ApplicationRecord
       all
     end
   end
-
-  # def self.search(search)
-  #   if search
-  #     if params[:search].blank?
-  #       redirect_to(root_path, alert: "Please select a country") and return
-  #     else
-  #       @parameter = params[:search].upcase
-  #       where("upper(country) like :search ", search: @country)
-  #     end
-  #   else
-  #     all
-  #   end
-  # end
 end
