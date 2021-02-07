@@ -7,6 +7,9 @@
     <%= link_to  "Sign up now",  new_user_registration_path, class: "btn btn-info btn-lg"  %>
 
   </div>
+  <div>
+    <%= render 'dragons/search_form' %>
+  </div>
 </div>
 <div class="container text-center">
   <div class="container">
@@ -33,4 +36,8 @@
       </div>
     </div>
   </div>
+  <div id="map"
+style="width: 100%; height: 600px;"
+data-markers="<%= @markers.to_json %>"
+data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
