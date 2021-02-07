@@ -1,6 +1,5 @@
 <div class="container">
   <h1>Details of the selected dragon</h1>
-  <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
   <hr>
   <%= link_to "Book this dragon", new_dragon_booking_path(@dragon) %>
   <ul>
@@ -10,13 +9,13 @@
     <li><strong>Size</strong> : <%= @dragon.size %></li>
     <li><strong>Description</strong> : <%= @dragon.description %></li>
   </ul>
-
   <hr>
   <% if user_signed_in? %>
-      <% if current_user.role == "owner" %>
-        <h5>The bookings for you dragon are</h5>
+      <% if (current_user.role == "owner" && current_user == @dragon.user) %>
+         <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
+        <h5>The bookings for your dragon are</h5>
         <ul>
-          <% @dragon.bookings.each do |booking| %>
+          <% @dragon.bookings.order(:start_date).each do |booking| %>
             <li>
               <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
                 From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>

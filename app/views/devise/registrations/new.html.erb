@@ -20,7 +20,12 @@
                   required: true %>
       <%= f.input :last_name,
                   required: true %>
-      <%= f.select :role, ["renter" ,"owner"], required: true %>
+      <%= f.input :role, collection: %w(renter owner), required: true %>
+      <%= f.input :description,
+                  required: true,
+                  input_html: { placeholder: "Make a short description of yourself" } %>
+      <%= f.input :phone_number,
+                  required: true  %>
     </div>
 
     <div class="form-actions">
