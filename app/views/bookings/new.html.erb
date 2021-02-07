@@ -2,11 +2,10 @@
   <h1>Book <%= @dragon.nickname %></h1>
   <hr>
   <%= simple_form_for ([@dragon, @booking]) do |f| %>
-  <%= f.input :start_date, as: :string, input_html: {class: "calendar", "data-unavailable-dates": @unavailable_dates.to_json} %>
-  <%= f.input :end_date, as: :string, input_html: {class: "calendar", "data-unavailable-dates": @unavailable_dates.to_json} %>
+  <%= f.input :start_date, as: :string, input_html: {class: "book_calendar", "data-unavailable-dates": @unavailable_dates.to_json} %>
+  <%= f.input :end_date, as: :string, input_html: {class: "book_calendar", "data-unavailable-dates": @unavailable_dates.to_json} %>
   <%= f.submit  %>
 <% end %>
   <hr>
   <%= link_to "Not sure yet, back to your dragon details", dragon_path(@dragon) %>
-  <%= link_to "Back to index", root_path  %>
 </div>
