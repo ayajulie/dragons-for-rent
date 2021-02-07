@@ -1,0 +1,55 @@
+<div class="jumbotron" id="animate-area ">
+  <h1 class="display-3">Dragons for rent</h1>
+  <h3>Fly My Dragon</h3>
+  <p class="lead jumbo-text">Why Booking A Flight When You Can Ride A Dragon?</p>
+  <div class="lead cta">
+    <%= link_to  "Sign up now",  new_user_registration_path, class: "btn btn-info btn-lg"  %>
+  </div>
+  <div class="container search-container">
+    <%= form_tag(dragons_path, method: "get") do %>
+      <div class="input-group d-flex justify-content-around">
+        <div class="form-field">
+          <%= search_field_tag :search, params[:search], placeholder: "Which Country?", class: "form-control" %>
+        </div>
+        <div class="form-field">
+          <%= date_field_tag :search, params[:search],  class: "form-control" %>
+        </div>
+        <div class="form-field-last">
+          <%= date_field_tag :search, params[:search],  class: "form-control" %>
+        </div>
+        <div>
+          <%= button_tag raw(' <i class="fas fa-search" aria-hidden="true"></i>'), name: nil %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="col">
+    <div class="row d-lg-flex align-items-center mb-4">
+      <div class="row cards mb-4  card-hover">
+        <% @dragons.each do |dragon| %>
+          <div class="card" style="width: 15rem;">
+            <% if dragon.photo.attached? %>
+              <img class="card-img-top rounded-top" src = <%= cl_image_path dragon.photo.key, height: 300, width: 400, crop: :fill %>  alt="Card image cap">
+            <%else%>
+              <img class="card-img-top rounded-top" src = <%= image_path 'default_dragon_pic.jpg' %> alt="Card image cap">
+            <%end%>
+            <div class="card-body">
+              <h5 class="card-title text-left"> <%= link_to "#{dragon.nickname }", dragon_path(dragon)  %> </h5>
+              <p class="card-text text-left"> <%= dragon.description %> </p>
+            </div>
+            <div class="card-footer text-left">
+              <%= dragon.country %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="map"
+style="width: 100%; height: 600px;"
+data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>

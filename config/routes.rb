@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'dragons#index'
   resources :dragons, except: :destroy do
     resources :bookings, only: [:new, :create, :edit, :update]
   end

@@ -15,9 +15,34 @@ class Dragon < ApplicationRecord
 
   # def self.search(search)
   #   if search
-  #     find(:all, conditions: ['name LIKE ?', "%#{search}%"])
+  #     country = Dragon.find_by(country: search.to_s)
+  #     if country
+  #       where(country: country)
+  #     else
+  #       @dragons = Dragon.all
+  #     end
   #   else
-  #     find(:all)
+  #     @dragons = Dragon.all
+  #   end
+  # end
+  def self.search(search)
+    if search
+      where("upper(country) LIKE ?", "%#{search.upcase}%")
+    else
+      all
+    end
+  end
+
+  # def self.search(search)
+  #   if search
+  #     if params[:search].blank?
+  #       redirect_to(root_path, alert: "Please select a country") and return
+  #     else
+  #       @parameter = params[:search].upcase
+  #       where("upper(country) like :search ", search: @country)
+  #     end
+  #   else
+  #     all
   #   end
   # end
 end

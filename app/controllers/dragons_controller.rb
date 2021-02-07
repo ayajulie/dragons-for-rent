@@ -1,6 +1,19 @@
 class DragonsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: %i[show index]
   before_action :set_dragon, only: %i[show edit update destroy]
+
+  def index
+    @dragons = Dragon.search(params[:search])
+
+    @markers = @dragons.geocoded.map do |dragon|
+      {
+        lat: dragon.latitude,
+        lng: dragon.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { dragon: dragon }),
+        image_url: helpers.asset_url('default_dragon_pic.jpg')
+      }
+    end
+  end
 
   def show
   end
@@ -27,14 +40,10 @@ class DragonsController < ApplicationController
     redirect_to root_path
   end
 
-  def search
-    @dragons = Dragon.search(country: params[:query])
-  end
-
   private
 
   def dragon_params
-    params.require(:dragon).permit(:nickname, :country, :size, :speed, :description, :photo)
+    params.require(:dragon).permit(:nickname, :country, :size, :speed, :description, :search, :photo)
   end
 
   def set_dragon
