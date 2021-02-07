@@ -20,7 +20,8 @@
                   required: true %>
       <%= f.input :last_name,
                   required: true %>
-      <%= f.select :role, ["renter" ,"owner"], required: true %>
+      <%= f.input :role, collection: %w(renter owner), required: true %>
+
     </div>
 
     <div class="form-actions">
