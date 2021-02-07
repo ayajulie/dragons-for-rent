@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
     else
       render :edit
     end
->>>>>>> af79964cf9ebe0e95ad7b8e7a0b34c78ced3c33c
+# >>>>>>> af79964cf9ebe0e95ad7b8e7a0b34c78ced3c33c
   end
 
   private
