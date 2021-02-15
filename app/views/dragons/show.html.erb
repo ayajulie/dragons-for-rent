@@ -15,7 +15,7 @@
          <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
         <h5>The bookings for your dragon are</h5>
         <ul>
-          <% @dragon.bookings.order(:start_date).each do |booking| %>
+          <% @dragon.bookings.order(:first_name).each do |booking| %>
             <li>
               <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
                 From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
