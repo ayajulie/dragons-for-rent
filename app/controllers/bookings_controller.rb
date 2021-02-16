@@ -51,14 +51,6 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:end_date, :start_date, :user_id, :dragon_id)
   end
 
-  def booking_status(booking)
-    if (booking.end_date.to_date - Date.today) < 0
-      booking.status = "done"
-    elsif (booking.start_date.to_date - Date.today) > 0
-      booking.status = "pending"
-    else
-      booking.status = "current"
-    end
-  end
+
 
 end

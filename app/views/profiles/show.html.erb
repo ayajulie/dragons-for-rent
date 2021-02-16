@@ -6,11 +6,17 @@
       <% @user.bookings.each do |booking| %>
       <li>Your trip to <%= booking.dragon.country %> with <%= booking.dragon.nickname %>, from <%= booking.start_date.strftime('%d/%m/%Y') %>, till <%= booking.end_date.strftime('%d/%m/%Y') %>,
         contact <%= booking.dragon.user.first_name %> <%= booking.dragon.user.last_name %>
-        <%= link_to "Edit your booking", edit_dragon_booking_path(booking) %>
+        <%= link_to "Edit your booking", edit_booking_path(booking) %>
       </li>
-
       <% end %>
     </ul>
+    <hr>
+    <h5>Manage your dragons</h5>
+    <ul><% @user.dragons.each do |dragon| %>
+    <li> <%= dragon.nickname %><%= link_to "show details", dragon_path(dragon) %></li>
+    <% end %>
+    </ul>
+
     <hr>
     <%= link_to "Edit your profile" ,  edit_user_registration_path %> (not operative)
     <hr>
