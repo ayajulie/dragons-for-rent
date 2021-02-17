@@ -1,6 +1,6 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
 
@@ -22,20 +22,20 @@
 //   }
 // }
 .card {
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.card-title{
-  color: #E67E22 !important;
+.card-title {
+  color: #e67e22 !important;
 }
 
-.card-img-top{
+.card-img-top {
   border-top-left-radius: 1rem !important;
   border-top-right-radius: 1rem !important;
 }
-.card-footer{
+.card-footer {
   border-bottom-left-radius: 1rem !important;
   border-bottom-right-radius: 1rem !important;
 }
