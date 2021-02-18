@@ -36,3 +36,10 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   initBookFlatpickr()
 });
+
+
+
+
+
+
+
