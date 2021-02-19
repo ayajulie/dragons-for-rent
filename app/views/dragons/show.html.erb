@@ -1,7 +1,11 @@
 <div class="container">
+<<<<<<< HEAD
   <h1>Details of <%= @dragon.nickname %></h1>
+=======
+  <h1>Details for <%= @dragon.nickname %></h1>
+>>>>>>> 07b8e620009b390929a9831af46083ff12c228e5
   <hr>
-  <%= link_to "Book this dragon", new_dragon_booking_path(@dragon) %>
+  <%= link_to "Book #{@dragon.nickname}", new_dragon_booking_path(@dragon) %>
   <ul>
     <li><strong>Name</strong> : <%= @dragon.nickname %></li>
     <li><strong>Country</strong> : <%= @dragon.country %></li>
@@ -11,6 +15,7 @@
   </ul>
   <hr>
   <% if user_signed_in? %>
+<<<<<<< HEAD
       <% if (current_user.role == "owner" && current_user == @dragon.user) %>
         <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
         <hr>
@@ -119,17 +124,37 @@
           <% end %>
 
       <% end %>
+=======
+    <% if (current_user.role == "owner" && current_user == @dragon.user) %>
+      <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
+      <h5>The bookings for your dragon are</h5>
+      <ul>
+        <% @dragon.bookings.order(:start_date).each do |booking| %>
+          <li>
+            <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
+              From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+          </li>
+          <%= link_to "Edit the booking", edit_booking_path(booking) %>
+        <% end %>
+      </ul>
+    <% else %>
+      <h5>Your bookings for this dragon are</h5>
+      <ul>
+        <% @dragon.bookings.where(user_id:  current_user[:id]).each do |booking| %>
+          <li>
+            <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
+              From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+          </li>
+          <%= link_to "Edit the booking", edit_booking_path(booking) %>
+        <% end %>
+      </ul>
+    <% end %>
+>>>>>>> 07b8e620009b390929a9831af46083ff12c228e5
   <% end %>
   <hr>
   <h5>Check the availability of this dragon with the calendar below</h5>
   <div class="calendar" data-unavailable-dates="<%= @unavailable_dates.to_json %>"></div>
-
   <hr>
   <%= link_to "Back to index", root_path  %>
   <hr>
-
 </div>
-
-
-
-

@@ -1,5 +1,8 @@
+label{
+color: #c4c4c4;
+}
 .jumbotron{
-  background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.2)),  url('dragon_bg_2.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.2)),  asset-url('dragon_bg_2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
@@ -31,3 +34,31 @@
   margin-right: 25rem;
   line-height: 1.9rem;
 }
+
+
+.search-container{
+  box-sizing: border-box;
+  background-color: #fff;
+  border-color: 2px solid #ced4da;
+  border-radius: 24rem;
+  padding: 0.5rem;
+  margin-top: 3rem;
+  width: 60%;
+}
+
+.form-control{
+  border: none;
+}
+.form-field{
+  border-right: 2px solid #ced4da;
+}
+
+.fa-search{
+  background-color: #DE0085;
+  border: none;
+  border-radius: 24rem;
+  color: #fff;
+  font-size: large;
+  padding: 0.7rem;
+}
+

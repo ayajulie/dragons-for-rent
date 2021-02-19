@@ -10,4 +10,14 @@ class Dragon < ApplicationRecord
                                     too_long: "%{count} characters is the maximum allowed" }
   validates :country, presence: true
   has_one_attached :photo
+  geocoded_by :country
+  after_validation :geocode, if: :will_save_change_to_country?
+
+  def self.search(search)
+    if search
+      where("upper(country) LIKE ?", "%#{search.upcase}%")
+    else
+      all
+    end
+  end
 end
