@@ -27,7 +27,7 @@ class DragonsController < ApplicationController
     @dragon = Dragon.new(dragon_params)
     @dragon.user = current_user
     if @dragon.save
-      redirect_to root_path
+      redirect_to dragon_path(@dragon, tab: "current")
     else
       render :new
     end
@@ -37,8 +37,8 @@ class DragonsController < ApplicationController
   end
 
   def update
-    @dragon = Dragon.update(dragon_params)
-    redirect_to root_path
+    @dragon.update(dragon_params)
+    redirect_to dragon_path(@dragon, tab: "current")
   end
 
   private
