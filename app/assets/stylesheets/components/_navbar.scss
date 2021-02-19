@@ -9,12 +9,23 @@
   align-items: center;
 }
 
+.nav-link dropdown-toggle{
+color :white;
+}
+
+a{
+  color:white;
+}
 .nav-item  {
   color : white;
 }
 
 .nav-link{
  color : white!important;
+  }
+
+.nav-link-menu{
+ color : black!important;
   }
 
 .navbar-nav mr-auto {

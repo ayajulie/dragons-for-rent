@@ -9,39 +9,24 @@
   </button>
   <% if user_signed_in?%>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-    <div class="dropdown-menu">
-  <span class="dropdown-item-text">Dropdown item text</span>
-  <a class="dropdown-item" href="#">Action</a>
-  <a class="dropdown-item" href="#">Another action</a>
-  <a class="dropdown-item" href="#">Something else here</a>
-</div>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "Create a dragon", new_dragon_path, class: "nav-link" %>
-      </li>
-    </ul>
-    <ul class="navbar-nav mr-auto">
-       <li class="nav-item">
-        <%= link_to "Edit your profile" ,  edit_user_registration_path, class: "nav-link" %>
-      </li>
-    </ul>
-    <ul class="navbar-nav mr-auto">
-       <li class="nav-item">
+      <li class="nav-item active">
         <%= current_user.email %>
       </li>
     </ul>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-      </li>
-    </ul>
+  <ul class="navbar-nav mr-auto">
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-     <%= link_to "Create a dragon", new_dragon_path, class: "nav-link" %>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+    <li class="nav-itm dropdown">
+      <a class ="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Menu </a>
 
-  </div>
+    <div class="dropdown-menu" aria-labelleby="navbarDropdown">
+
+   <%= link_to "Create a dragon", new_dragon_path, class: "dropdown-item" %>
+  <%= link_to "Edit your profile" ,  edit_user_registration_path, class: "dropdown-item" %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+</div>
+</li>
+</ul>
 
   </div>
   <% else %>
