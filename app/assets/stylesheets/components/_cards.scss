@@ -11,24 +11,6 @@
   grid-gap: 16px;
 }
 
-
-// .card-category-dragon {
-//   // background-image: asset-url('default_dragon_pic.jpg');
-//   background-size: cover;
-//   background-position: center;
-//   height: 180px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   font-size: 24px;
-//   font-weight: bold;
-//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-//   border-radius: 5px;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//   a {
-//     color: white;
-//   }
-// }
 .card {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
@@ -38,27 +20,16 @@
   margin-bottom: 10px;
 }
 
-.card-title {
-  color: #e67e22 !important;
-}
-
-.card-img-top {
-  border-top-left-radius: 1rem !important;
-  border-top-right-radius: 1rem !important;
-}
-.card-footer {
-  border-bottom-left-radius: 1rem !important;
-  border-bottom-right-radius: 1rem !important;
-}
-
-
 .card-product {
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
+  width: 45rem;
+
+  border-radius: 0.7rem;
 }
 
 .card-product img {
@@ -68,19 +39,30 @@
 }
 
 .card-product h2 {
+  font-family: "Signika", sans-serif;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-family: "Signika", sans-serif;
+  font-size: 14px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.9;
   margin-bottom: 0;
   margin-top: 8px;
 }
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product a {
+  color: #035ac1;
+  font-family: "Signika", sans-serif;
+  font-size: x-large;
+}
+.country {
+  color: #035ac1;
 }

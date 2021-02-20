@@ -17,10 +17,10 @@ class Dragon < ApplicationRecord
     # @ bookings = Booking.where('created_at NOT BETWEEN ? AND ?', @start_date.beginning_of_day, @end_date.end_of_day)
 
     if search
-      where("upper(country) LIKE ?", "%#{search.upcase}%")
+      where("upper(country) LIKE ?", "%#{search.upcase}%").order(:created_at).limit(6)
 
     else
-      all.order(:created_at).limit(8)
+      all.order(:created_at).limit(6)
     end
   end
 end

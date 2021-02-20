@@ -16,20 +16,18 @@
       <div class="div">
         <%= render 'search_form' %>
       </div>
-      <div class="row  mb-1  card-hover">
+      <div class="row  mb-3">
         <% @dragons.each do |dragon| %>
-          <div class="card" style="width: 45rem;">
+          <div class="card-product mb-2">
             <% if dragon.photo.attached? %>
-              <img class="card-img-top rounded-top" src = <%= cl_image_path dragon.photo.key, height: 300, width: 400, crop: :fill %>  alt="Card image cap">
+              <img  src = <%= cl_image_path dragon.photo.key, height: 300, width: 400, crop: :fill %>  alt="Card image cap">
             <%else%>
-              <img class="card-img-top rounded-top" src = <%= image_path 'default_dragon_pic.jpg' %> alt="Card image cap">
+              <img  src = <%= image_path 'default_dragon_pic.jpg' %> alt="dragon image">
             <%end%>
-            <div class="card-body">
-              <h5 class="card-title text-left"> <%= link_to "#{dragon.nickname }", dragon_path(dragon, tab: "current")  %> </h5>
-              <p class="card-text text-left"> <%= dragon.description %> </p>
-            </div>
-            <div class="card-footer text-left">
-              <%= dragon.country %>
+            <div class="card-product-info ml-3">
+              <h2 class="dragon-name"> <%= link_to "#{dragon.nickname }", dragon_path(dragon, tab: "current")  %> </h2>
+              <p class="description"> <%= dragon.description %> </p>
+              <p class="country"> <%= dragon.country %> </p>
             </div>
           </div>
         <% end %>
