@@ -16,6 +16,12 @@ color :white;
 a{
   color:white;
 }
+
+.navbar-nav mr-auto {
+  margin:20px;
+
+}
+
 .nav-item  {
   color : white;
 }
@@ -34,6 +40,7 @@ a{
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  margin-left: 12px;
 }
 
 .navbar-lewagon .navbar-brand img {
