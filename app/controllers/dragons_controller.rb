@@ -16,6 +16,11 @@ class DragonsController < ApplicationController
   end
 
   def show
+    # if params[:tab].present?
+    #   redirect_to dragon_path(@dragon, anchor: "#show-booking")
+    # else
+    #   redirect_to dragon_path(@dragon, tab: "current")
+    # end
     unavailable_dates(@dragon)
   end
 
