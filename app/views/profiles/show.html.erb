@@ -56,6 +56,12 @@
         <% end %>
       </ul>
 
+      <hr>
+      <%= link_to "Edit your profile" ,  edit_user_registration_path(@user) %>
+      <hr>
+      <%= link_to "Search you next booking" , root_path %>
+
+
 
     <% else %>
       Please sign in
