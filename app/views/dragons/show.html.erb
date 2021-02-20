@@ -1,45 +1,170 @@
 <div class="container">
-  <h1>Details for <%= @dragon.nickname %></h1>
+
+  <h1 class="pt-4">Visit <%= @dragon.country %> with <%= @dragon.nickname %></h1>
   <hr>
-  <%= link_to "Book #{@dragon.nickname}", new_dragon_booking_path(@dragon) %>
-  <ul>
-    <li><strong>Name</strong> : <%= @dragon.nickname %></li>
-    <li><strong>Country</strong> : <%= @dragon.country %></li>
-    <li><strong>Speed</strong> : <%= @dragon.speed %></li>
-    <li><strong>Size</strong> : <%= @dragon.size %></li>
-    <li><strong>Description</strong> : <%= @dragon.description %></li>
-  </ul>
-  <hr>
+
+  <div class="cards-country">
+    <div class="card">
+      <img class="card-img-top rounded-top" src = <%= image_path "pic-#{@dragon.country}1.jpg"%>  alt="Card image cap" style="object-fit: cover; height: 200px">
+    </div>
+    <div class="card">
+      <img class="card-img-top rounded-top" src = <%= image_path "pic-#{@dragon.country}2.jpg"%>  alt="Card image cap" style="object-fit: cover; height: 200px">
+    </div>
+    <div class="card">
+      <img class="card-img-top rounded-top" src = <%= image_path "pic-#{@dragon.country}3.jpg", height: 200  %>  alt="Card image cap" style="object-fit: cover; height: 200px">
+    </div>
+     <div class="card">
+      <img class="card-img-top rounded-top" src = <%= image_path "pic-#{@dragon.country}4.jpg", height: 200 %>  alt="Card image cap" style="object-fit: cover; height: 200px">
+    </div>
+  </div>
+
+  <div class="card-product my-2" style="height: auto">
+    <% if @dragon.photo.attached? %>
+      <img  src = <%= cl_image_path @dragon.photo.key%>  alt="Card image cap" style="height: 200px">
+    <%else%>
+      <img  src = <%= image_path 'default_dragon_pic.jpg' %> alt="Card image cap">
+    <%end%>
+    <div class="card-product-infos">
+      <ul>
+        <li><strong>Speed</strong> : <%= @dragon.speed %> <i class="fas fa-tachometer-alt"></i></li>
+        <li><strong>Size</strong> : <%= @dragon.size %><i class="fas fa-dragon"></i></li>
+        <li><strong>Description</strong> : <%= @dragon.description %></li>
+        <li>
+          <% if user_signed_in? && (current_user.role == "owner") && (current_user == @dragon.user) %>
+            <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
+            <%= link_to edit_dragon_path(@dragon) do %><i class="fa fa-edit"></i><% end %>
+          <% end %>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div id="show-booking">
+
   <% if user_signed_in? %>
-    <% if (current_user.role == "owner" && current_user == @dragon.user) %>
-      <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
-      <h5>The bookings for your dragon are</h5>
-      <ul>
-        <% @dragon.bookings.order(:start_date).each do |booking| %>
-          <li>
-            <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
-              From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+      <% if (current_user.role == "owner" && current_user == @dragon.user) %>
+
+        <hr>
+        <%= link_to "Keep #{@dragon.nickname} for yourself", new_dragon_booking_path(@dragon), class: "btn btn-secondary btn-lg btn-block" %>
+        <hr>
+        <h5>Check <%= @dragon.nickname %>'s bookings</h5>
+        <ul class="list-inline tabs-underlined">
+           <li>
+            <%= link_to "Past bookings", dragon_path(@dragon, tab: "past"), class: "tab-underlined #{'active' if params[:tab] == 'past'}"   %>
           </li>
-          <%= link_to "Edit the booking", edit_booking_path(booking) %>
-        <% end %>
-      </ul>
-    <% else %>
-      <h5>Your bookings for this dragon are</h5>
-      <ul>
-        <% @dragon.bookings.where(user_id:  current_user[:id]).each do |booking| %>
           <li>
-            <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
-              From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+            <%= link_to "Current booking", dragon_path(@dragon, tab: "current"), class: "tab-underlined #{'active' if params[:tab] == 'current'}"  %>
           </li>
-          <%= link_to "Edit the booking", edit_booking_path(booking) %>
+          <li>
+            <%= link_to "Pending bookings", dragon_path(@dragon, tab: "pending"), class: "tab-underlined #{'active' if params[:tab] == 'pending'}"  %>
+          </li>
+        </ul>
+        <hr>
+
+        <% if params[:tab] == "past" %>
+
+          <ul>
+            <% past_bookings = @dragon.bookings.order(:start_date).select {|booking| booking.update_status == "done" } %>
+            <% past_bookings.each do |booking| %>
+              <li>
+                <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
+                  From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+              </li>
+            <% end %>
+          </ul>
+
+        <% elsif params[:tab] == "current" %>
+
+          <ul>
+            <% current_bookings = @dragon.bookings.order(:start_date).select {|booking| booking.update_status == "current" } %>
+            <% current_bookings.each do |booking| %>
+              <li>
+                <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
+                  From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+              </li>
+            <% end %>
+          </ul>
+
+         <% elsif params[:tab] == "pending" %>
+
+          <ul>
+            <% pending_bookings = @dragon.bookings.order(:start_date).select {|booking| booking.update_status == "pending" } %>
+            <% pending_bookings.each do |booking| %>
+              <li>
+                <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
+                  From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+              </li>
+            <% end %>
+          </ul>
+
         <% end %>
-      </ul>
-    <% end %>
+
+      <% else %>
+        <hr>
+        <%= link_to "Book #{@dragon.nickname}", new_dragon_booking_path(@dragon), class: "btn btn-secondary btn-lg btn-block" %>
+        <hr>
+        <h5>Your bookings with <%= @dragon.nickname %></h5>
+        <ul class="list-inline tabs-underlined">
+          <li>
+            <%= link_to "Past bookings", dragon_path(@dragon, tab: "past"), class: "tab-underlined #{'active' if params[:tab] == 'past'}" %>
+          </li>
+          <li>
+            <%= link_to "Current booking", dragon_path(@dragon, tab: "current"), class: "tab-underlined #{'active' if params[:tab] == 'current'}" %>
+          </li>
+          <li>
+            <%= link_to "Pending bookings", dragon_path(@dragon, tab: "pending"), class: "tab-underlined #{'active' if params[:tab] == 'pending'}" %>
+          </li>
+        </ul>
+        <hr>
+
+          <% if params[:tab] == "past" %>
+            <ul>
+            <% past_bookings = @dragon.bookings.where(user_id:  current_user[:id]).order(:start_date).select {|booking| booking.update_status == "done" } %>
+            <% past_bookings.each do |booking| %>
+              <li>
+                <p> You have booked this dragon <br>
+                  From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+              </li>
+            <% end %>
+            </ul>
+
+          <% elsif params[:tab] == "current" %>
+
+            <ul>
+            <% current_bookings = @dragon.bookings.where(user_id:  current_user[:id]).order(:start_date).select {|booking| booking.update_status == "current" } %>
+            <% current_bookings.each do |booking| %>
+              <li>
+                <p> You have booked this dragon <br>
+                  From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+              </li>
+            <% end %>
+            </ul>
+
+          <% elsif params[:tab] == "pending" %>
+
+           <ul>
+            <% pending_bookings = @dragon.bookings.where(user_id:  current_user[:id]).order(:start_date).select {|booking| booking.update_status == "pending" } %>
+            <% pending_bookings.each do |booking| %>
+              <li>
+                <p> You have booked this dragon <br>
+                  From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+                  <%= link_to "Edit this booking", edit_booking_path(booking) %>
+              </li>
+            <% end %>
+            </ul>
+          <% end %>
+
+      <% end %>
+
   <% end %>
+  </div>
+
   <hr>
   <h5>Check the availability of this dragon with the calendar below</h5>
   <div class="calendar" data-unavailable-dates="<%= @unavailable_dates.to_json %>"></div>
   <hr>
   <%= link_to "Back to index", root_path  %>
   <hr>
+
 </div>
