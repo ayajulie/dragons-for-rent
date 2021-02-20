@@ -5,33 +5,36 @@
       <hr>
 
       <h5>Your trips</h5>
-      <ul>
-        <% @user.bookings.each do |booking| %>
-        <li>Your trip to <%= booking.dragon.country %> with <%= booking.dragon.nickname %>, from <%= booking.start_date.strftime('%d/%m/%Y') %>, till <%= booking.end_date.strftime('%d/%m/%Y') %>,
-          contact <%= booking.dragon.user.first_name %> <%= booking.dragon.user.last_name %>
-          <%= link_to "Edit your booking", edit_booking_path(booking) %>
-        </li>
-        <% end %>
-      </ul>
+      <hr>
+      <% @user.bookings.each do |booking| %>
+        <div class="card-product my-1" style="height: 100px">
+         <img  src = <%= image_path "pic-#{booking.dragon.country}1.jpg" %> alt="Card image cap">
+        <div class="card-product-infos">
+          <ul>
+            <li>Your trip to <strong><%= booking.dragon.country %></strong> with <strong><%= booking.dragon.nickname %></strong> , from <%= booking.start_date.strftime('%d/%m/%Y') %>, till <%= booking.end_date.strftime('%d/%m/%Y') %> ,
+            contact <%= booking.dragon.user.first_name %> <%= booking.dragon.user.last_name %> <br>
+            <%= link_to "Edit your booking", edit_booking_path(booking) %>
+            </li>
+        </div>
+        </div>
+      <% end %>
+
       <hr>
 
       <h5>View all the bookings of your dragons</h5>
-      <ul>
-        <% @user.dragons.each do |dragon| %>
-        <h6><%= dragon.nickname %></h6>
-          <% dragon.bookings.each do |booking| %>
-            <li>
-            <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
-            From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
-            </li>
+      <div class="card_booking">
+        <ul>
+          <% @user.dragons.each do |dragon| %>
+          <h6><%= dragon.nickname %></h6>
+            <% dragon.bookings.each do |booking| %>
+              <li>
+              <p><%= booking.user.first_name %> <%= booking.user.last_name %> has booked this dragon <br>
+              From <%= booking.start_date.strftime('%d/%m/%Y') %> to  <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
-
-
-
-
-
+        </ul>
+      </div>
 
       <hr>
       <h5>Manage your dragons</h5>
@@ -47,14 +50,19 @@
 
     <% elsif @user == current_user %>
       <h5>Your trips</h5>
-      <ul>
-        <% @user.bookings.each do |booking| %>
-        <li>Your trip to <%= booking.dragon.country %> with <%= booking.dragon.nickname %>, from <%= booking.start_date.strftime('%d/%m/%Y') %>, till <%= booking.end_date.strftime('%d/%m/%Y') %>,
-          contact <%= booking.dragon.user.first_name %> <%= booking.dragon.user.last_name %>
-          <%= link_to "Edit your booking", edit_booking_path(booking) %>
-        </li>
-        <% end %>
-      </ul>
+      <hr>
+      <% @user.bookings.each do |booking| %>
+        <div class="card-product my-1" style="height: 100px">
+         <img  src = <%= image_path "pic-#{booking.dragon.country}1.jpg" %> alt="Card image cap">
+        <div class="card-product-infos">
+          <ul>
+            <li>Your trip to <strong><%= booking.dragon.country %></strong> with <strong><%= booking.dragon.nickname %></strong> , from <%= booking.start_date.strftime('%d/%m/%Y') %>, till <%= booking.end_date.strftime('%d/%m/%Y') %> ,
+            contact <%= booking.dragon.user.first_name %> <%= booking.dragon.user.last_name %> <br>
+            <%= link_to "Edit your booking", edit_booking_path(booking) %>
+            </li>
+        </div>
+        </div>
+      <% end %>
 
       <hr>
       <%= link_to "Edit your profile" ,  edit_user_registration_path(@user) %>
