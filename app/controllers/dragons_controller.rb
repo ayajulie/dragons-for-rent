@@ -49,6 +49,7 @@ class DragonsController < ApplicationController
   private
 
   def dragon_params
+    # params.require(:dragon).permit(:nickname, :country, :size, :speed, :description, :search, :photo)
     params.require(:dragon).permit(:nickname, :country, :size, :speed, :description, :search, :photo)
   end
 

@@ -14,10 +14,13 @@ class Dragon < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_country?
 
   def self.search(search)
+    # @ bookings = Booking.where('created_at NOT BETWEEN ? AND ?', @start_date.beginning_of_day, @end_date.end_of_day)
+
     if search
       where("upper(country) LIKE ?", "%#{search.upcase}%")
+
     else
-      all
+      all.order(:created_at).limit(8)
     end
   end
 end

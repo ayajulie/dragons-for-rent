@@ -1,42 +1,38 @@
-label{
-color: #c4c4c4;
+label {
+  color: #c4c4c4;
 }
-.jumbotron{
-  background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.2)),  asset-url('dragon_bg_2.jpg');
+.jumbotron {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)),
+    asset-url("dragon_bg_2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
+  height: 550px;
   padding: 3rem 4rem 4rem 6rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.cta{
- padding-top: 2rem;
+.cta {
+  padding-top: 2rem;
 }
-.jumbo-text{
+.jumbo-text {
   color: rgba(255, 255, 255, 0.849);
   padding-top: 1rem;
 }
 
 .jumbotron .btn {
   border-radius: 24rem;
-  background-color: #AF0069;
+  background-color: #af0069;
   border: none;
   color: #fff;
 }
 
-.jumbotron .btn:hover{
-  background-color: #DE0085;
-  color: #cacaca
+.jumbotron .btn:hover {
+  background-color: #de0085;
+  color: #cacaca;
 }
 
-.jumbo-text{
-  margin-right: 25rem;
-  line-height: 1.9rem;
-}
-
-
-.search-container{
+.search-container {
   box-sizing: border-box;
   background-color: #fff;
   border-color: 2px solid #ced4da;
@@ -46,19 +42,34 @@ color: #c4c4c4;
   width: 60%;
 }
 
-.form-control{
+.form-control {
   border: none;
 }
-.form-field{
+.form-field {
   border-right: 2px solid #ced4da;
 }
 
-.fa-search{
-  background-color: #DE0085;
+.fa-search {
+  background-color: #de0085;
   border: none;
   border-radius: 24rem;
   color: #fff;
   font-size: large;
   padding: 0.7rem;
 }
+.display-3 {
+  font-family: "Lobster", cursive;
+}
 
+.jumbo-text {
+  // font-family: "Exo", sans-serif;
+  font-family: "Signika", sans-serif;
+
+  font-size: x-large;
+  margin-right: 25rem;
+  line-height: 1.9rem;
+}
+#title {
+  font-family: "Signika", sans-serif;
+  font-size: xx-large;
+}
