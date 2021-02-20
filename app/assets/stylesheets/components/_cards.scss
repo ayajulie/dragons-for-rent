@@ -1,7 +1,7 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 8px;
 }
 
 // .card-category-dragon {
@@ -25,6 +25,9 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
 
 .card-title {

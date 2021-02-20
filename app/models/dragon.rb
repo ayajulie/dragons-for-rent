@@ -17,8 +17,8 @@ class Dragon < ApplicationRecord
     # @ bookings = Booking.where('created_at NOT BETWEEN ? AND ?', @start_date.beginning_of_day, @end_date.end_of_day)
 
     if search
-      # where("upper(country)ORDER BY (created_at) DESC LIKE ? ", "%#{search.upcase}%")
-      search ? where(country: search) : joins(:booking).where('booking.start_date < ?', search.strftime('%Y-%m-%d'))
+      where("upper(country) LIKE ?", "%#{search.upcase}%")
+
     else
       all.order(:created_at).limit(8)
     end
