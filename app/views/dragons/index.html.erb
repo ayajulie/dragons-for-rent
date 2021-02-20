@@ -18,13 +18,13 @@
       </div>
       <div class="row  mb-3">
         <% @dragons.each do |dragon| %>
-          <div class="card-product mb-2">
+          <div class="card-product-dragons mb-2">
             <% if dragon.photo.attached? %>
               <img  src = <%= cl_image_path dragon.photo.key, height: 300, width: 400, crop: :fill %>  alt="Card image cap">
             <%else%>
               <img  src = <%= image_path 'default_dragon_pic.jpg' %> alt="dragon image">
             <%end%>
-            <div class="card-product-info ml-3">
+            <div class="card-product-info-dragons ml-3">
               <h2 class="dragon-name"> <%= link_to "#{dragon.nickname }", dragon_path(dragon, tab: "current")  %> </h2>
               <p class="description"> <%= dragon.description %> </p>
               <p class="country"> <%= dragon.country %> </p>
