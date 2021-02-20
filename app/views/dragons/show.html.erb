@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="card-product my-2" style="height: 100px">
+  <div class="card-product my-2 py-2" style="height: 120px">
     <% if @dragon.photo.attached? %>
       <img  src = <%= cl_image_path @dragon.photo.key%>  alt="Card image cap" style="object-fit: cover">
     <%else%>
