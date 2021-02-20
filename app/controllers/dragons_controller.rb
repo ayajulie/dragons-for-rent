@@ -10,7 +10,7 @@ class DragonsController < ApplicationController
         lat: dragon.latitude,
         lng: dragon.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { dragon: dragon }),
-        image_url: helpers.asset_url('default_dragon_pic.jpg')
+        image_url: helpers.asset_url('drmarker.png')
       }
     end
   end
@@ -49,6 +49,7 @@ class DragonsController < ApplicationController
   private
 
   def dragon_params
+    # params.require(:dragon).permit(:nickname, :country, :size, :speed, :description, :search, :photo)
     params.require(:dragon).permit(:nickname, :country, :size, :speed, :description, :search, :photo)
   end
 
