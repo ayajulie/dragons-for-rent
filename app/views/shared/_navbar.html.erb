@@ -23,6 +23,7 @@
 
    <%= link_to "Create a dragon", new_dragon_path, class: "dropdown-item" %>
   <%= link_to "Edit your profile" ,  edit_user_registration_path, class: "dropdown-item" %>
+   <%= link_to "My Dashboard" ,  profile_path(current_user), class: "dropdown-item" %>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 </div>
 </li>
