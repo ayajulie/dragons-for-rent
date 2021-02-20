@@ -73,7 +73,7 @@
       <%= link_to "Search you next booking" , root_path %>
 
     <% elsif @user == current_user %>
-      <h5>Your trips</h5>
+      <h5 class="my-2">Your trips</h5>
       <hr>
       <% @user.bookings.each do |booking| %>
         <div class="card-product my-1" style="height: 100px">
