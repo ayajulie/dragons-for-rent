@@ -25,7 +25,7 @@
               <img class="card-img-top rounded-top" src = <%= image_path 'default_dragon_pic.jpg' %> alt="Card image cap">
             <%end%>
             <div class="card-body">
-              <h5 class="card-title text-left"> <%= link_to "#{dragon.nickname }", dragon_path(dragon)  %> </h5>
+              <h5 class="card-title text-left"> <%= link_to "#{dragon.nickname }", dragon_path(dragon, tab: "current")  %> </h5>
               <p class="card-text text-left"> <%= dragon.description %> </p>
             </div>
             <div class="card-footer text-left">

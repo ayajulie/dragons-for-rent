@@ -4,19 +4,34 @@
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
     </ul>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <% if user_signed_in?%>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+  <ul class="navbar-nav mr-auto">
+
+    <li class="nav-itm dropdown">
+      <a class ="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Menu </a>
+
+    <div class="dropdown-menu" aria-labelleby="navbarDropdown">
+
+   <%= link_to "Create a dragon", new_dragon_path, class: "dropdown-item" %>
+  <%= link_to "Edit your profile" ,  edit_user_registration_path, class: "dropdown-item" %>
+   <%= link_to "My Dashboard" ,  profile_path(current_user), class: "dropdown-item" %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+</div>
+</li>
+</ul>
+
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "Create a dragon", new_dragon_path, class: "nav-link" %>
+      <li class="nav-item active">
+        <%= current_user.first_name %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-      </li>
-  </ul>
+    </ul>
+
   </div>
   <% else %>
 
@@ -34,14 +49,12 @@
     </div>
   <%end%>
 
+
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">   
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
         <%= image_tag "http://www.monde-fantasy.com/sites/default/files/field/image/dragon.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
-        </div>
       </li>
     </ul>
   </div>

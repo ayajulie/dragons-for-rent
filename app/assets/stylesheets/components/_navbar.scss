@@ -1,26 +1,52 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #133645;
-}
+  background-color: #121211;
+   }
 
 .nav-item activ {
-  color : white; 
+  color : white;
+  margin: 3px;
+  align-items: center;
+}
+
+.nav-link dropdown-toggle{
+color :white;
+}
+
+a{
+  color:white;
+}
+
+.navbar-nav mr-auto {
+  margin:20px;
+
+}
+
+.nav-item  {
+  color : white;
 }
 
 .nav-link{
- color : #fff!important;
+ color : white!important;
+  }
+
+.nav-link-menu{
+ color : black!important;
   }
 
 .navbar-nav mr-auto {
-  color : white; 
+  color : white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  margin-left: 12px;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+
 
 
