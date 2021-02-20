@@ -9,6 +9,19 @@
   align-items: center;
 }
 
+.nav-link dropdown-toggle{
+color :white;
+}
+
+a{
+  color:white;
+}
+
+.navbar-nav mr-auto {
+  margin:20px;
+
+}
+
 .nav-item  {
   color : white;
 }
@@ -17,12 +30,17 @@
  color : white!important;
   }
 
+.nav-link-menu{
+ color : black!important;
+  }
+
 .navbar-nav mr-auto {
   color : white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  margin-left: 12px;
 }
 
 .navbar-lewagon .navbar-brand img {
