@@ -11,10 +11,10 @@
       <img class="card-img-top rounded-top" src = <%= image_path "pic-#{@dragon.country}2.jpg"%>  alt="Card image cap" style="object-fit: cover; height: 200px">
     </div>
     <div class="card">
-      <img class="card-img-top rounded-top" src = <%= image_path "pic-#{@dragon.country}3.jpg", height: 200  %>  alt="Card image cap" style="object-fit: cover; height: 200px">
+      <img class="card-img-top rounded-top" src = <%= image_path "pic-#{@dragon.country}3.jpg"%>  alt="Card image cap" style="object-fit: cover; height: 200px">
     </div>
      <div class="card">
-      <img class="card-img-top rounded-top" src = <%= image_path "pic-#{@dragon.country}4.jpg", height: 200 %>  alt="Card image cap" style="object-fit: cover; height: 200px">
+      <img class="card-img-top rounded-top" src = <%= image_path "pic-#{@dragon.country}4.jpg"%>  alt="Card image cap" style="object-fit: cover; height: 200px">
     </div>
   </div>
 
@@ -26,9 +26,9 @@
     <%end%>
     <div class="card-product-infos">
       <ul>
-        <li><strong>Speed</strong> : <%= @dragon.speed %> <i class="fas fa-tachometer-alt"></i></li>
-        <li><strong>Size</strong> : <%= @dragon.size %><i class="fas fa-dragon"></i></li>
-        <li><strong>Description</strong> : <%= @dragon.description %></li>
+        <li><strong>Speed</strong> <i class="fas fa-tachometer-alt"></i> : <%= @dragon.speed %> </li>
+        <li><strong>Size</strong> <i class="fas fa-dragon"></i> : <%= @dragon.size %></li>
+        <li><strong>Description</strong> <i class="fas fa-stream"></i> : <%= @dragon.description %></li>
         <li>
           <% if user_signed_in? && (current_user.role == "owner") && (current_user == @dragon.user) %>
             <%= link_to "Edit the dragon", edit_dragon_path(@dragon)  %>
